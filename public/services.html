@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <!-- Favicon -->
-
     <!-- Bootstrap Link -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -17,7 +15,8 @@
     <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/makeReservation.css">
     <link rel="stylesheet" href="assets/css/barberPortal.css">
-    <link rel="stylesheet" href="assets/css/about.css">
+    <link rel="stylesheet" href="assets/css/services.css">
+    <link rel="stylesheet" href="assets/css/contact.css">
 
     <!-- jQuery (these jQuery links for Datepicker are compatible with Hamburger Menu) -->
     <!-- This must come before the Bootstrap Popper and Bootstrap JS -->
@@ -44,14 +43,17 @@
 
     
     <!-------------------------------------------------------------------------------->
-    <!-- LOGO -->
-    <img class="logo" src="assets/images/sRGB_PNG/Logo.png" alt="Logo"></img>
+    <!-- LOGO BUTTON -->
+    <a class="logoButton" href="index.html">
+        <img class="logo" src="assets/images/sRGB_PNG/Logo.png" alt="Logo"></img>
+    </a>
+    <br></br>
 
 
 
     <!-------------------------------------------------------------------------------->
     <!-- PAGE HEADING -->
-    <div class="pageHeading">About</div>
+    <div class="pageHeading">Services</div>
     
     
     
@@ -59,42 +61,46 @@
     <!-- MAIN CONTENT OF PAGE -->
     <!-- BOOTSTRAP GRID -->
 
-    <br>
+    <br></br>
 
     <!-- Max width 960px container -->
     <div class="container mainContentContainer">         <!-- Put any bootstrap elements into class="container" to set max width to 960px and have it centered on page -->
 
-      <div class="row mt-4">
-        <div class="col-md-6 offset-md-3 aboutContainer">
-        The Barbershop is located in Chelsea NYC.
-        <br></br>
-        We are at:
-        <br>
-        123 Chelsea Main Street
-        <br>
-        No.1
-        <br>
-        New York, NY 10011
-        <br></br>
-        Call us at:
-        <br>
-        212-747-1000
-        <br></br>
-        We are open:
-        <br>
-        Tuesday - Sunday
-        <br>
-        10am - 8pm
-        <br>
-        We are closed Mondays
-        <br></br>
-        We look forward to your next visit!
-          
-        <br></br>
-        <br></br>
-        <br></br>
+        <div class="row">
+            <!-- Column 1 -->
+            <div class="col-md-12 servicesContent">
+
+                Hair Cut
+                <br>
+                $30
+                <br></br>
+                Hair Cut with Beard Trim
+                <br>
+                $45
+                <br></br>
+                Hair Cut with Shave
+                <br>
+                $45
+                <br></br>
+                Beard Trim
+                <br>
+                $20
+                <br></br>
+                Shave
+                <br>
+                $20
+                <br></br>
+                Kid's Hair Cut
+                <br>
+                (12 years and younger)
+                <br>
+                $25
+
+            </div>
+
         </div>
-      </div>
+
+    <br></br>
 
     </div>
 
@@ -112,9 +118,10 @@
         <!-- Overlay content -->
         <div class="overlay-content">
             <a href="makeReservation.html">Make Reservation</a>
-            <span class="nonActiveButton">Barber Portal</span>
-            <a href="about.html">About</a> 
-            <a href="index.html">Back To Home</a>    
+            <a href="barberPortal.html">Barber Portal</a> 
+            <span class="nonActiveButton">Services</span>
+            <a href="contact.html">Contact</a> 
+            <a href="index.html">Back To Home</a>   
         </div>
 
     </div>

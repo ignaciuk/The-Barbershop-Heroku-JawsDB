@@ -1,3 +1,6 @@
+/* ------------------------------ */
+/* INDEX.HTML ONLY */
+
 .indexPageBackgroundImage {
     width: 100%;
     height: auto;
@@ -15,7 +18,10 @@
     z-index: -2;
 }
 
-.backgroundImage {
+/* ------------------------------ */
+/* ALL PAGES EXCEPT INDEX.HTML */
+
+.backgroundImage {              
     width: 100%;
     height: auto;
 
@@ -28,7 +34,7 @@
     z-index: -2;
 }
 
-.mobileBackgroundImage {
+.mobileBackgroundImage {        
     display: none;
 
     opacity: 0.03;
@@ -36,15 +42,17 @@
     z-index: -2;
 }
 
+.logoButton {
+    cursor: pointer;
+}
+
 .logo {
     width: 80px;
     height: 80px;
 
-    position: fixed;
+    position: relative;
     left: 50%;
     transform: translate(-40px, 0px);
-
-    z-index: 1;
 }
 
 .pageHeading {
@@ -58,16 +66,17 @@
     position: relative;
     left: -1px;         /*  offset a little here because the font is italic and there is an optical illusion
                             happening with the text seeming to appear slightly to the right */
-    top: 100px;
+    top: 0px;
 }
 
 .mainContentContainer {
-    background-color: none;
+    background-color: none;     /* Set a color to see position of mainContentContainer on page */
 
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
 
     position: relative;
-    top: 70px;
+    top: -28px;
 }
 
 /* ---------------------------------------- */
@@ -78,6 +87,9 @@
 /* (1366px is viewport height of iPad Pro in vertical) */
 @media screen and (max-width: 1030px) {
 
+    /* ------------------------------ */
+    /* INDEX.HTML ONLY */
+
     .indexPageBackgroundImage {
         width: auto;
         height: 100%;
@@ -86,6 +98,9 @@
         top: 0px;
         left: 50px;
     }
+
+    /* ------------------------------ */
+    /* ALL PAGES EXCEPT INDEX.HTML */
 
     .backgroundImage {
         width: auto;
@@ -105,8 +120,6 @@
 /* (1024px is viewport height of iPad in vertical) */
 @media screen and (max-width: 980px) {
 
-
-
 }
 
 /* -------------------- */
@@ -115,6 +128,9 @@
 /* (375px is viewport width of iPhone X in vertical) */
 @media screen and (max-width: 750px) {
     
+    /* ------------------------------ */
+    /* INDEX.HTML ONLY */
+
     .indexPageBackgroundImage {
         display: none;
     }
@@ -130,6 +146,9 @@
         left: 0px;
     }
 
+    /* ------------------------------ */
+    /* ALL PAGES EXCEPT INDEX.HTML */
+    
     .backgroundImage {
         display: none;
     }

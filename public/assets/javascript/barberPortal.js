@@ -1,7 +1,9 @@
 $(document).ready(function () {
-  // blogContainer holds all of our posts
-  var blogContainer = $(".blog-container");
+
+  // reservationContainer holds all of our posts
+  var reservationContainer = $(".reservation-container");
   var postCategorySelect = $("#category");
+
   // Click events for the edit and delete buttons
   $(document).on("click", "button.delete", handlePostDelete);
   $(document).on("click", "button.edit", handlePostEdit);
@@ -38,67 +40,76 @@ $(document).ready(function () {
 
   // Getting the initial list of posts
   getPosts();
+  
   // InitializeRows handles appending all of our constructed post HTML inside
-  // blogContainer
+  // reservationContainer
   function initializeRows() {
-    blogContainer.empty();
+    reservationContainer.empty();
     var postsToAdd = [];
     for (var i = 0; i < posts.length; i++) {
       postsToAdd.push(createNewRow(posts[i]));
     }
-    blogContainer.append(postsToAdd);
+    reservationContainer.append(postsToAdd);
   }
 
   // This function constructs a post's HTML
   function createNewRow(post) {
     var newPostCard = $("<div>");
     newPostCard.addClass("card");
+ 
     var newPostCardHeading = $("<div>");
     newPostCardHeading.addClass("card-header");
+    
+    var newPostTitle = $("<h2>");
+    newPostTitle.text(post.barber_name + " ");
+    newPostTitle.addClass("card-title");
+
+    var newPostDate = $("<small>");
+
     var deleteBtn = $("<button>");
     deleteBtn.text("x");
     deleteBtn.addClass("delete btn btn-danger");
+
     var editBtn = $("<button>");
     editBtn.text("EDIT");
     editBtn.addClass("edit btn btn-default");
-    var newPostTitle = $("<h2>");
-    var newPostDate = $("<small>");
+
     var newPostCategory = $("<h5>");
-    // newPostCategory.text(post.customer_name);
     newPostCategory.css({
-      //float: "left",
-      //"font-weight": "700",
       "font-size": "20px",
       "position": "absolute",
       "right": "25px",
       "bottom": "20px",
     });
+  
     var newPostCardBody = $("<div>");
     newPostCardBody.addClass("card-body");
-    var newPostBody = $("<p>");
-    newPostTitle.text(post.barber_name + " ");
-    newPostTitle.css({
-      "font-size": "30px",
-      "margin-top": "8px"
-    });
-    //newPostBody.text(post.date);
-    newPostBody.text(post.customer_name + " at " + post.reservation_time 
-    + " on " + post.reservation_date  + ", " + " Email: "  + post.customer_email + " Phone: " + post.customer_phone);
-    newPostBody.css({
-      "font-size": "20px",
-      "position": "relative",
-      "top": "10px",
-    })
+
+    var newPostBody1 = $("<p>");
+    newPostBody1.text("Customer: " + post.customer_name);
+
+    var newPostBody2 = $("<p>");
+    newPostBody2.text("Reservation: " + post.reservation_date + " at " + post.reservation_time);
+    
+    var newPostBody3 = $("<p>");
+    newPostBody3.text("Email: "  + post.customer_email);
+    
+    var newPostBody4 = $("<p>");
+    newPostBody4.text("Phone: " + post.customer_phone);
 
     var formattedDate = new Date(post.createdAt);
     //formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
     //newPostDate.text(formattedDate);
+
     newPostTitle.append(newPostDate);
+    newPostCardHeading.append(newPostTitle);
     newPostCardHeading.append(deleteBtn);
     newPostCardHeading.append(editBtn);
-    newPostCardHeading.append(newPostTitle);
     newPostCardHeading.append(newPostCategory);
-    newPostCardBody.append(newPostBody);
+    newPostCardBody.append(newPostBody1);
+    newPostCardBody.append(newPostBody2);
+    newPostCardBody.append(newPostBody3);
+    newPostCardBody.append(newPostBody4);
     newPostCard.append(newPostCardHeading);
     newPostCard.append(newPostCardBody);
     newPostCard.data("post", post);
@@ -116,7 +127,7 @@ $(document).ready(function () {
   }
 
   // This function figures out which post we want to edit and takes it to the
-  // Appropriate url
+  // appropriate url
   function handlePostEdit() {
     var currentPost = $(this)
       .parent()
@@ -127,14 +138,14 @@ $(document).ready(function () {
 
   // This function displays a message when there are no posts
   function displayEmpty() {
-    blogContainer.empty();
+    reservationContainer.empty();
     var messageH2 = $("<h2>");
     messageH2.css({
       "text-align": "center",
       "margin-top": "50px"
     });
     messageH2.html("No reservations yet for this barber, <a href='/makeReservation'>click here</a> to create a new reservation.");
-    blogContainer.append(messageH2);
+    reservationContainer.append(messageH2);
   }
 
   // This function handles reloading new posts when the category changes
